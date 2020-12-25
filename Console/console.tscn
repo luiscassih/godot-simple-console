@@ -1,0 +1,40 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://Console/console.gd" type="Script" id=1]
+[ext_resource path="res://Console/commandHandler.gd" type="Script" id=2]
+
+[node name="console" type="Control"]
+pause_mode = 2
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 2.66968
+margin_top = 5.68405
+margin_right = 2.66968
+margin_bottom = 5.68408
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="input" type="LineEdit" parent="."]
+margin_top = 349.0
+margin_right = 1020.0
+margin_bottom = 373.0
+caret_blink = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="output" type="TextEdit" parent="."]
+margin_right = 1020.0
+margin_bottom = 349.0
+focus_mode = 0
+text = "Debug console"
+readonly = true
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="commandHandler" type="Node2D" parent="."]
+script = ExtResource( 2 )
+[connection signal="text_entered" from="input" to="." method="_on_input_text_entered"]
